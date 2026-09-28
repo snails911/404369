@@ -12,7 +12,7 @@ A personal digital garden of thought experiments — not answers. Live at <https
 | `reality-mechanics.html` | Shelf 01 — Reality Mechanics. |
 | `two-beings.html` | Shelf 02 — The Thoughts of Two Beings. |
 | `field-notes.html` | Shelf 03 — Field Notes. |
-| `the-numbers.html` | What the wordmark means: the 404 status code, the doubling loop that skips 3, 6 and 9, and the pun on "the 411". |
+| `the-numbers.html` | What the wordmark means (the 404 status code, the doubling loop that skips 3, 6 and 9, the pun on "the 411") plus the other numbers people attach meaning to: 137, 222, 432, 528. |
 | `404.html` | The not-found page. Because it sits at the deploy root, Cloudflare Pages serves it with a real 404 status for unknown URLs instead of the homepage. |
 | `favicon.svg` | The site mark, drawn flat in the design system palette. |
 | `_redirects` | One rule, so the browser's automatic `/favicon.ico` request gets the SVG rather than the catch-all page. |
