@@ -1,0 +1,456 @@
+/* ============================================================
+   The 404 on 369 — shared design system
+   A + E hybrid: warm bone paper (A) on a fine graph-paper ground,
+   with a margin-annotation column (E). Ink + one correction-pen red.
+   No external requests, no webfonts, no JavaScript.
+   ============================================================ */
+
+:root {
+  --paper:        #faf7f2;
+  --paper-sunk:   #f4f0e7;
+  --ink:          #1c1916;
+  --ink-soft:     #4d463d;
+  --ink-faint:    #8c8275;
+  --ink-ghost:    #b3a99a;
+  --rule:         #e0d7c8;
+  --rule-strong:  #c9bda8;
+  --accent:       #7c2f22;
+  --accent-soft:  rgba(124, 47, 34, 0.55);
+  --accent-wash:  rgba(124, 47, 34, 0.045);
+
+  --grid-minor:   rgba(28, 25, 22, 0.045);
+  --grid-major:   rgba(28, 25, 22, 0.075);
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+           Georgia, "DejaVu Serif", "Times New Roman", serif;
+  --mono:  ui-monospace, SFMono-Regular, "DejaVu Sans Mono", Menlo,
+           Consolas, "Liberation Mono", monospace;
+
+  --measure: 66ch;
+  --margin-col: 200px;
+  --sheet: 1080px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(to right, var(--grid-minor) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(to bottom, var(--grid-minor) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(to right, var(--grid-major) 0 1px, transparent 1px 120px),
+    repeating-linear-gradient(to bottom, var(--grid-major) 0 1px, transparent 1px 120px);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- sheet: margin column + main column (E's structure) ---------- */
+
+.sheet {
+  width: 100%;
+  max-width: var(--sheet);
+  margin: 0 auto;
+  padding: 0 32px;
+  flex: 1;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, 1fr);
+  gap: 40px;
+  border-top: 1px solid var(--rule);
+  padding: 56px 0;
+}
+
+.row:first-of-type { border-top: 0; }
+
+.annot {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  line-height: 1.9;
+  padding-top: 6px;
+}
+
+.annot strong {
+  display: block;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.annot .annot-num {
+  display: block;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 2.4rem;
+  letter-spacing: 0;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+/* ---------- header ---------- */
+
+.masthead {
+  width: 100%;
+  max-width: var(--sheet);
+  margin: 0 auto;
+  padding: 34px 32px 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.wordmark span { color: var(--accent); }
+
+.masthead .status {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.masthead .status::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+
+/* ---------- hero / threshold ---------- */
+
+.threshold {
+  padding: 84px 0 40px;
+  max-width: 46rem;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 34px;
+}
+
+.display {
+  font-size: clamp(2.9rem, 7vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  margin: 0 0 18px;
+  font-variant-numeric: lining-nums;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  color: var(--ink-soft);
+  margin: 0 0 44px;
+}
+
+.manifesto {
+  margin: 0 0 22px;
+  padding-left: 22px;
+  border-left: 2px solid var(--accent);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.1vw, 1.32rem);
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 40rem;
+}
+
+.hedge {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  max-width: 34rem;
+  margin: 0;
+}
+
+/* ---------- the doors ---------- */
+
+.doors {
+  padding: 26px 0 76px;
+}
+
+.doors-intro {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  margin: 0 0 30px;
+}
+
+.door-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+  align-items: stretch;
+}
+
+.door {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+  padding: 30px 26px 24px;
+  border: 1px solid var(--rule-strong);
+  background-color: var(--paper);
+  background-image: radial-gradient(
+    130% 90% at 50% 118%,
+    var(--accent-wash) 0%,
+    transparent 68%);
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.45s var(--ease),
+              transform 0.45s var(--ease),
+              background-color 0.45s var(--ease);
+}
+
+/* the light behind the door */
+.door::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 62%;
+  background: radial-gradient(
+    120% 100% at 50% 100%,
+    rgba(124, 47, 34, 0.10) 0%,
+    rgba(124, 47, 34, 0.03) 42%,
+    transparent 72%);
+  opacity: 0.5;
+  transition: opacity 0.55s var(--ease);
+  pointer-events: none;
+}
+
+/* the sill */
+.door::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent-soft);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.55s var(--ease);
+}
+
+.door:hover,
+.door:focus-visible {
+  border-color: var(--accent-soft);
+  background-color: #fdfbf7;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.door:hover::before,
+.door:focus-visible::before { opacity: 1; }
+
+.door:hover::after,
+.door:focus-visible::after { transform: scaleX(1); }
+
+.door-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 26px;
+}
+
+.door-title {
+  font-size: 1.5rem;
+  line-height: 1.22;
+  font-weight: 400;
+  margin: 0 0 12px;
+}
+
+.door-prompt {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+
+.door-desc {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.door-foot {
+  margin-top: 28px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.door:hover .door-foot,
+.door:focus-visible .door-foot { color: var(--accent); }
+
+/* ---------- prose (essay + shelf pages) ---------- */
+
+.prose { max-width: var(--measure); }
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 2.4em 0 0.6em;
+}
+
+.prose h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 2.6em 0 0.9em;
+}
+
+.prose p { margin: 0 0 1.35em; }
+
+.prose blockquote {
+  margin: 2em 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--rule-strong);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+}
+
+.prose a:hover { border-bottom-color: var(--accent); }
+
+.page-title {
+  font-size: clamp(2rem, 4.6vw, 3.1rem);
+  line-height: 1.06;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  margin: 0 0 14px;
+}
+
+.page-prompt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 30px;
+}
+
+.quiet {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 2;
+  color: var(--ink-ghost);
+}
+
+.backlink {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+  padding-bottom: 2px;
+}
+
+.backlink:hover { border-bottom-color: var(--accent); }
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  width: 100%;
+  max-width: var(--sheet);
+  margin: 0 auto;
+  padding: 30px 32px 46px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-ghost);
+  line-height: 2.1;
+}
+
+.colophon p,
+.colophon div { margin: 0; }
+
+/* the domain is the first line in every colophon — keep it lowercase */
+.colophon > :first-child {
+  text-transform: none;
+  letter-spacing: 0.2em;
+}
+
+.colophon a { color: var(--ink-faint); text-decoration: none; }
+.colophon a:hover { color: var(--accent); }
+
+/* ---------- narrow ---------- */
+
+@media (max-width: 860px) {
+  body { font-size: 17px; }
+  .sheet, .masthead, .colophon { padding-left: 22px; padding-right: 22px; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 40px 0; }
+  .annot { padding-top: 0; }
+  .annot .annot-num { font-size: 1.7rem; margin-bottom: 6px; }
+  .threshold { padding: 56px 0 30px; }
+  .door { min-height: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .door:hover { transform: none; }
+}

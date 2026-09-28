@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="A dark doorway with a warm line of light at the threshold">
+  <rect width="32" height="32" fill="#faf7f2"/>
+  <rect x="5.5" y="3.5" width="21" height="25" fill="none" stroke="#c9bda8" stroke-width="1"/>
+  <rect x="7" y="5" width="8.5" height="22" fill="#1c1916"/>
+  <rect x="17" y="5" width="8.5" height="22" fill="#1c1916"/>
+  <rect x="15.5" y="5" width="2" height="22" fill="#7c2f22"/>
+  <rect x="5.5" y="29.5" width="21" height="1.5" fill="#c9bda8"/>
+</svg>
