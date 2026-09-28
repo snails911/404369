@@ -397,6 +397,14 @@ body {
   color: var(--ink-ghost);
 }
 
+.standfirst {
+  max-width: 40rem;
+  font-size: 1.08rem;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  margin: 26px 0 0;
+}
+
 .backlink {
   font-family: var(--mono);
   font-size: 11px;
