@@ -1,6 +1,6 @@
 # The 404 on 369
 
-The inside breakdown of the glitches, anomalies, and hidden mechanics of the universal frequency blueprint... and some of the other stupid stuff I think about.
+My random thoughts on glitches, anomalies, and hidden mechanics of the universal frequency blueprint... and some of the other stupid stuff I can't help but think about.
 
 A personal digital garden of thought experiments — not answers. Live at <https://404369.xyz>.
 
